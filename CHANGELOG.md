@@ -16,6 +16,77 @@ und dieses Projekt verwendet [Semantic Versioning](https://semver.org/spec/v2.0.
 
 ---
 
+## [0.8.0] - 2025-07-06
+
+### 🎉 Phase 2 Abgeschlossen - Backend Core Services
+- Vollständige Backend-APIs mit Project & Chat Management
+- LLM Proxy Service mit 6 Provider-Integrations
+- Import/Export Tools für ChatGPT und TypingMind
+- Token Counting & Cost Calculation System
+- Streaming Support für alle LLM-Provider
+
+### ✨ Added
+- **Project & Chat Management (Milestone 2.1)**
+  - Backend-Core Service erweitert (1200+ Zeilen)
+  - CRUD APIs für Projects, Folders, Chats, Messages
+  - Pydantic Request/Response Models
+  - Hierarchical Folder Structure mit Validation
+  - Search & Filter Functions (Content-basiert)
+  - Batch Operations (Bulk Archiving)
+  - JWT Authentication Dependencies
+  - SQLAlchemy Integration mit existierenden Models
+
+- **LLM Proxy Service (Milestone 2.2)**
+  - LLM-Proxy Service kompletter Rewrite (1000+ Zeilen)
+  - **6 LLM Provider integriert:**
+    - OpenAI (GPT-4, GPT-3.5-turbo)
+    - Anthropic (Claude-3-Sonnet, Claude-3-Haiku)
+    - Google (Gemini-Pro)
+    - DeepSeek (DeepSeek-Chat)
+    - OpenRouter (Multi-model support)
+    - RunPod (Custom endpoints)
+  - Provider Abstraction Layer mit Base-Class
+  - Token Counting mit tiktoken für alle Provider
+  - Cost Calculation mit aktuellen Preisen
+  - Streaming Support mit Server-Sent Events
+  - Comprehensive Error Handling & Retry Logic
+  - Model Configurations mit Pricing Data
+
+- **Data Import/Export (Milestone 2.3)**
+  - ChatGPT Export Parser (JSON Format)
+  - TypingMind Import Funktionalität
+  - Export Formats: JSON, Markdown, CSV, TXT
+  - Bulk Import API für multiple Formate
+  - File Attachment Migration System
+  - Data Validation & Parsing
+
+### 🔧 Technical Infrastructure
+- **Requirements Updates**: Alle Services mit spezifischen Versionen
+- **Docker Compose Enhancement**: Vollständige Entwicklungsumgebung mit:
+  - Backend Services (API Gateway, Backend-Core, LLM-Proxy, Auth-Service)
+  - Database Services (PostgreSQL, Redis)
+  - Development Tools (pgAdmin, Redis Commander)
+  - Monitoring Services (Prometheus, Grafana)
+- **Environment Configuration**: `env.example` mit LLM Provider API Keys
+- **Code Quality**: Alle Python-Dateien kompilieren erfolgreich
+
+### 📦 Dependencies Added
+- **Backend**: tiktoken, openai, anthropic, google-generativeai
+- **HTTP Clients**: httpx, requests mit async support
+- **Data Processing**: pandas, python-multipart
+- **LLM Integration**: Provider-spezifische SDKs
+- **Development**: Comprehensive monitoring stack
+
+### 🚀 Ready for Phase 3
+- Vollständige Backend-Infrastruktur
+- LLM-Integration mit 6 Providern
+- Import/Export Capabilities
+- Token Counting & Cost Tracking
+- Streaming Support für Real-time Responses
+- Containerized Services für Development/Production
+
+---
+
 ## [0.5.0] - 2025-07-06
 
 ### 🎉 Phase 1 Abgeschlossen - Fundament & Infrastruktur
