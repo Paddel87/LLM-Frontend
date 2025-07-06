@@ -1,10 +1,10 @@
 # 🤖 LLM-Frontend - Open Source Multi-LLM Chat Interface
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.8.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-0.12.0-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python">
-  <img src="https://img.shields.io/badge/status-phase%202%20complete-brightgreen.svg" alt="Status">
+  <img src="https://img.shields.io/badge/status-phase%203%20complete-brightgreen.svg" alt="Status">
   <img src="https://img.shields.io/badge/docker-ready-blue.svg" alt="Docker">
   <img src="https://img.shields.io/github/last-commit/Paddel87/LLM-Frontend" alt="Last Commit">
 </p>
@@ -13,9 +13,9 @@
 
 **LLM-Frontend** ist eine selbst-hostbare, Open-Source Alternative zu kommerziellen LLM-Chat-Interfaces wie TypingMind oder AnythingLLM. Das Projekt bietet vollständige Datensouveränität und ermöglicht die Nutzung mehrerer Large Language Models über eine einheitliche, moderne Benutzeroberfläche.
 
-> **📊 Status Update:** Phase 2 (Backend Core Services) erfolgreich abgeschlossen! ✅  
-> Vollständige Backend-APIs, LLM-Proxy mit 6 Providern und Import/Export Tools implementiert.  
-> **Bereit für Phase 3:** Frontend Grundfunktionen & Chat-Interface
+> **📊 Status Update:** Phase 3 (Frontend Grundfunktionen) erfolgreich abgeschlossen! ✅  
+> Vollständige React + TypeScript Frontend Implementation mit modernem Chat-Interface.  
+> **Bereit für Phase 4:** Erweiterte Features (RAG, Payment, Role-Playing)
 
 ### ✨ Hauptfeatures
 
@@ -205,12 +205,12 @@ Dieses Projekt folgt dem [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 
 ## 📊 Projekt-Status
 
-- **Aktuelle Version**: 0.8.0 ✅ **Phase 2 abgeschlossen**
-- **Entwicklungsstand**: Bereit für Phase 3 (Frontend Grundfunktionen)
+- **Aktuelle Version**: 0.12.0 ✅ **Phase 3 abgeschlossen**
+- **Entwicklungsstand**: Bereit für Phase 4 (Erweiterte Features)
 - **Roadmap**: Siehe [ROADMAP.md](ROADMAP.md)
 - **Changelog**: Siehe [CHANGELOG.md](CHANGELOG.md)
 
-### ✅ Abgeschlossen (Phase 0 + 1 + 2)
+### ✅ Abgeschlossen (Phase 0 + 1 + 2 + 3)
 
 - [x] **Phase 0:** Vollständige Entwicklungsumgebung
 - [x] **Phase 0:** CI/CD-Pipeline mit GitHub Actions
@@ -231,14 +231,17 @@ Dieses Projekt folgt dem [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 - [x] **Phase 2:** Token Counting & Cost Calculation
 - [x] **Phase 2:** Streaming Support for LLM Responses
 - [x] **Phase 2:** Batch Operations & Search Functions
+- [x] **Phase 3:** React + TypeScript Frontend Foundation
+- [x] **Phase 3:** Chat Interface mit Streaming Support
+- [x] **Phase 3:** Project Management UI
+- [x] **Phase 3:** Authentication UI & User Profile
+- [x] **Phase 3:** Dark/Light Mode & Responsive Design
 
-### 🚀 Nächste Phase (Phase 3)
+### 🚀 Nächste Phase (Phase 4)
 
-- [ ] React + TypeScript Frontend Foundation
-- [ ] Chat Interface mit Streaming Support
-- [ ] Project Management UI
-- [ ] Authentication UI & User Profile
-- [ ] Dark/Light Mode & Responsive Design
+- [ ] RAG-Unterstützung
+- [ ] Payment Integration
+- [ ] Role-Playing Features
 
 ## 🔐 Sicherheit
 
