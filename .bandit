@@ -1,0 +1,33 @@
+# ===========================================
+# Bandit Configuration für LLM-Frontend
+# ===========================================
+
+[bandit]
+# Skips to apply
+skips = 
+    # B101: Skip assert_used - assert statements are ok in tests
+    B101,
+    # B601: Skip shell injection via shell=True (when safe)
+    B601
+
+# Paths to exclude
+exclude_dirs = 
+    tests,
+    .venv,
+    venv,
+    build,
+    dist,
+    node_modules,
+    __pycache__
+
+# Test IDs to include (leave empty to include all)
+tests = 
+
+# Confidence levels: LOW, MEDIUM, HIGH
+confidence = MEDIUM
+
+# Severity levels: LOW, MEDIUM, HIGH  
+severity = MEDIUM
+
+# Format for output
+format = json 

@@ -1,0 +1,181 @@
+# ===========================================
+# Dependabot Configuration für LLM-Frontend
+# ===========================================
+
+version: 2
+updates:
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "@yourusername"
+    assignees:
+      - "@yourusername"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+
+  # Node.js Root Package
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "07:00"
+    open-pull-requests-limit: 5
+    versioning-strategy: increase
+    reviewers:
+      - "@yourusername"
+    assignees:
+      - "@yourusername"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+
+  # API Gateway
+  - package-ecosystem: "npm"
+    directory: "/api-gateway"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+    open-pull-requests-limit: 5
+    versioning-strategy: increase
+    reviewers:
+      - "@yourusername"
+    assignees:
+      - "@yourusername"
+    commit-message:
+      prefix: "deps(api-gateway)"
+      include: "scope"
+
+  # Frontend
+  - package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    versioning-strategy: increase
+    reviewers:
+      - "@yourusername"
+    assignees:
+      - "@yourusername"
+    commit-message:
+      prefix: "deps(frontend)"
+      include: "scope"
+
+  # Frontend Vite
+  - package-ecosystem: "npm"
+    directory: "/frontend-vite"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "10:00"
+    open-pull-requests-limit: 5
+    versioning-strategy: increase
+    reviewers:
+      - "@yourusername"
+    assignees:
+      - "@yourusername"
+    commit-message:
+      prefix: "deps(frontend-vite)"
+      include: "scope"
+
+  # Python Services
+  - package-ecosystem: "pip"
+    directory: "/backend-core"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "06:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "@yourusername"
+    assignees:
+      - "@yourusername"
+    commit-message:
+      prefix: "deps(backend-core)"
+      include: "scope"
+
+  - package-ecosystem: "pip"
+    directory: "/auth-service"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "07:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "@yourusername"
+    assignees:
+      - "@yourusername"
+    commit-message:
+      prefix: "deps(auth-service)"
+      include: "scope"
+
+  - package-ecosystem: "pip"
+    directory: "/payment-service"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "08:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "@yourusername"
+    assignees:
+      - "@yourusername"
+    commit-message:
+      prefix: "deps(payment-service)"
+      include: "scope"
+
+  - package-ecosystem: "pip"
+    directory: "/llm-proxy"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "@yourusername"
+    assignees:
+      - "@yourusername"
+    commit-message:
+      prefix: "deps(llm-proxy)"
+      include: "scope"
+
+  - package-ecosystem: "pip"
+    directory: "/rag-service"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "10:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "@yourusername"
+    assignees:
+      - "@yourusername"
+    commit-message:
+      prefix: "deps(rag-service)"
+      include: "scope"
+
+  # Docker
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "06:00"
+    open-pull-requests-limit: 3
+    reviewers:
+      - "@yourusername"
+    assignees:
+      - "@yourusername"
+    commit-message:
+      prefix: "deps(docker)"
+      include: "scope" 

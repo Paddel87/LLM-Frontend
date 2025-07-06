@@ -1,0 +1,21 @@
+# Core Dependencies
+fastapi
+uvicorn
+python-json-logger
+structlog
+pydantic-settings
+python-dotenv
+qdrant-client
+sentence-transformers
+langchain
+chromadb
+
+# Development Dependencies
+black
+isort
+flake8
+bandit
+pytest
+pytest-asyncio
+pytest-cov
+mypy 

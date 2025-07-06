@@ -1,0 +1,168 @@
+name: 🚀 Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  create-release:
+    name: 📦 Create Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 📋 Generate changelog
+        id: changelog
+        run: |
+          # Extract version from tag
+          VERSION=${GITHUB_REF#refs/tags/}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          
+          # Generate changelog (simple version)
+          echo "## Changes in $VERSION" > CHANGELOG.md
+          git log --pretty=format:"- %s" $(git describe --tags --abbrev=0 HEAD^)..HEAD >> CHANGELOG.md
+          
+          # Read changelog content
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          cat CHANGELOG.md >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: 📦 Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ steps.changelog.outputs.version }}
+          body: ${{ steps.changelog.outputs.changelog }}
+          draft: false
+          prerelease: ${{ contains(github.ref, 'beta') || contains(github.ref, 'alpha') || contains(github.ref, 'rc') }}
+
+  build-and-push:
+    name: 🐳 Build and Push Release Images
+    runs-on: ubuntu-latest
+    needs: create-release
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      matrix:
+        service: [frontend, api-gateway, backend-core, auth-service, payment-service, llm-proxy, rag-service]
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🔧 Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 🔑 Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 📝 Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/${{ matrix.service }}
+          tags: |
+            type=ref,event=tag
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=raw,value=latest
+
+      - name: 🐳 Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./${{ matrix.service }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
+
+  docker-compose-release:
+    name: 📦 Create Docker Compose Release
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    permissions:
+      contents: write
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📝 Extract version
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: 🔄 Update docker-compose for release
+        run: |
+          # Create production docker-compose file
+          cp docker-compose.yml docker-compose.prod.yml
+          
+          # Replace image references with versioned ones
+          sed -i "s|build:|# build:|g" docker-compose.prod.yml
+          sed -i "s|# image:|image:|g" docker-compose.prod.yml
+          
+          # Add versioned images
+          for service in frontend api-gateway backend-core auth-service payment-service llm-proxy rag-service; do
+            sed -i "s|image: $service|image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/$service:${{ steps.version.outputs.version }}|g" docker-compose.prod.yml
+          done
+
+      - name: 📦 Create deployment package
+        run: |
+          mkdir -p release-package
+          cp docker-compose.prod.yml release-package/
+          cp .env.example release-package/
+          cp -r scripts release-package/
+          
+          # Create README for deployment
+          cat > release-package/README.md << EOF
+          # LLM-Frontend ${{ steps.version.outputs.version }} Deployment
+          
+          ## Quick Start
+          
+          1. Copy .env.example to .env.local and configure your settings
+          2. Run: \`docker-compose -f docker-compose.prod.yml up -d\`
+          
+          ## Services
+          
+          - Frontend: http://localhost:3000
+          - API Gateway: http://localhost:8080
+          - Database: localhost:5432
+          
+          ## Documentation
+          
+          See the main repository for full documentation.
+          EOF
+          
+          # Create deployment archive
+          tar -czf llm-frontend-${{ steps.version.outputs.version }}.tar.gz -C release-package .
+
+      - name: 📤 Upload release assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: ./llm-frontend-${{ steps.version.outputs.version }}.tar.gz
+          asset_name: llm-frontend-${{ steps.version.outputs.version }}.tar.gz
+          asset_content_type: application/gzip 

@@ -1,0 +1,56 @@
+# ===========================================
+# yamllint Configuration für LLM-Frontend
+# ===========================================
+
+extends: default
+
+rules:
+  # Line length
+  line-length:
+    max: 120
+    level: warning
+  
+  # Indentation
+  indentation:
+    spaces: 2
+    indent-sequences: true
+    check-multi-line-strings: false
+  
+  # Comments
+  comments:
+    min-spaces-from-content: 2
+    
+  # Document markers
+  document-start: disable
+  document-end: disable
+  
+  # Trailing spaces
+  trailing-spaces: enable
+  
+  # Empty lines
+  empty-lines:
+    max: 2
+    max-start: 0
+    max-end: 1
+    
+  # Brackets
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+    
+  # Braces  
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+    
+  # Truthy values
+  truthy:
+    allowed-values: ['true', 'false', 'on', 'off', 'yes', 'no']
+    check-keys: true
+
+# Files to ignore
+ignore: |
+  .github/
+  node_modules/
+  .venv/
+  venv/ 

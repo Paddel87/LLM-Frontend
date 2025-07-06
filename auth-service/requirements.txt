@@ -1,0 +1,21 @@
+# Core Dependencies
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+python-json-logger
+structlog
+pydantic-settings
+python-dotenv
+python-jose[cryptography]
+passlib[bcrypt]
+
+# Development Dependencies
+black
+isort
+flake8
+bandit
+pytest
+pytest-asyncio
+pytest-cov
+mypy

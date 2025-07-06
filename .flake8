@@ -1,0 +1,46 @@
+# ===========================================
+# Flake8 Configuration für LLM-Frontend
+# ===========================================
+
+[flake8]
+max-line-length = 88
+max-complexity = 10
+extend-ignore = 
+    # E203: Whitespace before ':' (conflicts with black)
+    E203,
+    # E501: Line too long (handled by black)
+    E501,
+    # W503: Line break before binary operator (conflicts with black)
+    W503,
+    # F401: Module imported but unused (sometimes needed for __init__.py)
+    F401,
+    # E402: Module level import not at top of file (sometimes needed)
+    E402
+
+exclude = 
+    .git,
+    __pycache__,
+    .pytest_cache,
+    .venv,
+    venv,
+    build,
+    dist,
+    *.egg-info,
+    .tox,
+    .coverage,
+    migrations,
+    node_modules
+
+# Per-file ignores
+per-file-ignores =
+    # Tests can have longer lines and more complex setup
+    */tests/*:E501,C901
+    # __init__.py files often have imports that appear unused
+    */__init__.py:F401,F403
+    # Settings files may have long lines
+    */settings.py:E501
+    # Config files may have long lines
+    */config.py:E501
+
+# Docstring checks
+docstring-convention = google 
