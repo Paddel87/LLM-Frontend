@@ -1,15 +1,21 @@
 # 🤖 LLM-Frontend - Open Source Multi-LLM Chat Interface
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.1.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-0.2.0-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python">
-  <img src="https://img.shields.io/badge/status-development-orange.svg" alt="Status">
+  <img src="https://img.shields.io/badge/status-phase%200%20complete-brightgreen.svg" alt="Status">
+  <img src="https://img.shields.io/badge/docker-ready-blue.svg" alt="Docker">
+  <img src="https://img.shields.io/github/last-commit/Paddel87/LLM-Frontend" alt="Last Commit">
 </p>
 
 ## 🎯 Über das Projekt
 
 **LLM-Frontend** ist eine selbst-hostbare, Open-Source Alternative zu kommerziellen LLM-Chat-Interfaces wie TypingMind oder AnythingLLM. Das Projekt bietet vollständige Datensouveränität und ermöglicht die Nutzung mehrerer Large Language Models über eine einheitliche, moderne Benutzeroberfläche.
+
+> **📊 Status Update:** Phase 0 (Projektinitialisierung) erfolgreich abgeschlossen! ✅  
+> Vollständige Entwicklungsumgebung, CI/CD-Pipeline und Code-Quality-System implementiert.  
+> **Bereit für Phase 1:** Fundament & Infrastruktur
 
 ### ✨ Hauptfeatures
 
@@ -30,22 +36,31 @@
 - 8GB RAM minimum
 - 20GB freier Speicherplatz
 
-### Installation (5 Minuten)
+### Installation (2 Minuten)
 
 ```bash
 # Repository klonen
-git clone https://github.com/yourusername/llm-frontend.git
-cd llm-frontend
+git clone https://github.com/Paddel87/LLM-Frontend.git
+cd LLM-Frontend
 
-# Umgebungsvariablen konfigurieren
-cp .env.example .env
-# Editiere .env mit deinen API-Keys und Einstellungen
+# Automatisches Setup (alles in einem Befehl)
+./scripts/dev-setup.sh
 
 # Services starten
 docker-compose up -d
 
-# Frontend öffnen
-# http://localhost:3000
+# 🎉 Fertig! Öffne http://localhost:3000
+```
+
+### Alternative: Manuelle Installation
+
+```bash
+# Umgebungsvariablen konfigurieren
+cp .env.example .env.local
+# Editiere .env.local mit deinen API-Keys
+
+# Services starten
+docker-compose up -d
 ```
 
 ### Erste Schritte
@@ -190,11 +205,28 @@ Dieses Projekt folgt dem [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 
 ## 📊 Projekt-Status
 
-- **Aktuelle Version**: 0.1.0 (Early Development)
+- **Aktuelle Version**: 0.2.0 ✅ **Phase 0 abgeschlossen**
+- **Entwicklungsstand**: Bereit für Phase 1 (Fundament & Infrastruktur)
 - **Roadmap**: Siehe [ROADMAP.md](ROADMAP.md)
 - **Changelog**: Siehe [CHANGELOG.md](CHANGELOG.md)
 
-### Geplante Features
+### ✅ Abgeschlossen (Phase 0)
+
+- [x] Vollständige Entwicklungsumgebung
+- [x] CI/CD-Pipeline mit GitHub Actions
+- [x] Code-Quality-System (Linting, Testing)
+- [x] Strukturiertes Logging-Framework
+- [x] Docker Compose Setup mit Hot-Reload
+- [x] Umfassende Dokumentation
+
+### 🚀 Nächste Phase (Phase 1)
+
+- [ ] Datenbankschema & Migrationen
+- [ ] JWT-basierte Authentifizierung
+- [ ] Core API-Endpoints
+- [ ] Project & Chat Management
+
+### 🔮 Langfristige Features
 
 - [ ] Mobile App (iOS/Android)
 - [ ] Voice Input/Output
