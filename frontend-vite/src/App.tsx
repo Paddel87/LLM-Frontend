@@ -11,6 +11,7 @@ import DashboardPage from '@/pages/DashboardPage.tsx'
 import ChatPage from '@/pages/ChatPage.tsx'
 import ProjectsPage from '@/pages/ProjectsPage.tsx'
 import SettingsPage from '@/pages/SettingsPage.tsx'
+import KnowledgeBasePage from '@/pages/KnowledgeBasePage.tsx'
 import NotFoundPage from '@/pages/NotFoundPage.tsx'
 
 // Layout Components
@@ -66,6 +67,7 @@ function App() {
             <Route path="dashboard" element={<DashboardPage />} />
             <Route path="projects" element={<ProjectsPage />} />
             <Route path="chat/:chatId?" element={<ChatPage />} />
+            <Route path="knowledge" element={<KnowledgeBasePage />} />
             <Route path="settings" element={<SettingsPage />} />
           </Route>
 

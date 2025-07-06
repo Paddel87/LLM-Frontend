@@ -1,10 +1,10 @@
 # 🤖 LLM-Frontend - Open Source Multi-LLM Chat Interface
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.12.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-0.13.0-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python">
-  <img src="https://img.shields.io/badge/status-phase%203%20complete-brightgreen.svg" alt="Status">
+  <img src="https://img.shields.io/badge/status-milestone%204.1%20complete-brightgreen.svg" alt="Status">
   <img src="https://img.shields.io/badge/docker-ready-blue.svg" alt="Docker">
   <img src="https://img.shields.io/github/last-commit/Paddel87/LLM-Frontend" alt="Last Commit">
 </p>
@@ -13,9 +13,9 @@
 
 **LLM-Frontend** ist eine selbst-hostbare, Open-Source Alternative zu kommerziellen LLM-Chat-Interfaces wie TypingMind oder AnythingLLM. Das Projekt bietet vollständige Datensouveränität und ermöglicht die Nutzung mehrerer Large Language Models über eine einheitliche, moderne Benutzeroberfläche.
 
-> **📊 Status Update:** Phase 3 (Frontend Grundfunktionen) erfolgreich abgeschlossen! ✅  
-> Vollständige React + TypeScript Frontend Implementation mit modernem Chat-Interface.  
-> **Bereit für Phase 4:** Erweiterte Features (RAG, Payment, Role-Playing)
+> **📊 Status Update:** Milestone 4.1 (RAG & Vector Database) erfolgreich abgeschlossen! ✅  
+> API-basierte RAG-Pipeline mit Qdrant Vector Database und kostenoptimierter Embedding-Integration.  
+> **Nächster Meilenstein:** 4.2 Payment & Billing System
 
 ### ✨ Hauptfeatures
 
@@ -24,17 +24,19 @@
 - 💳 **Integriertes Bezahlsystem**: Prepaid-System mit Stripe-Integration
 - 📊 **Token-Tracking**: Echtzeit-Überwachung von Kosten und Verbrauch
 - 🗂️ **Projekt-Organisation**: Ordnerstruktur für Chats und Dokumente
-- 🤖 **RAG-Unterstützung**: Semantische Suche mit Vektordatenbank
+- 🤖 **RAG-Unterstützung**: Semantische Suche mit Vektordatenbank (API-basiert)
 - 🎭 **Role-Playing Features**: Charaktere und Story-Management
-- 🔒 **100% Privatsphäre**: Keine externen Abhängigkeiten, vollständige Kontrolle
+- 🔒 **100% Privatsphäre**: Keine externen Abhängigkeiten außer gewählten LLM-APIs
+- ⚡ **Keine lokalen GPUs erforderlich**: Vollständig API-basierte Architektur
 
 ## 🚀 Schnellstart
 
 ### Voraussetzungen
 
 - Docker & Docker Compose (v2.0+)
-- 8GB RAM minimum
-- 20GB freier Speicherplatz
+- 4GB RAM minimum (optimiert - keine lokalen ML-Models)
+- 10GB freier Speicherplatz (optimiert - keine lokalen GPU-Dependencies)
+- **Keine lokalen GPUs erforderlich** - vollständig API-basiert
 
 ### Installation (2 Minuten)
 
@@ -95,7 +97,7 @@ Das System basiert auf einer Microservice-Architektur mit folgenden Komponenten:
 - **Auth Service**: JWT-basierte Authentifizierung
 - **Backend Core**: Projekt- und Chat-Management
 - **LLM Proxy**: Abstraktion für verschiedene LLM-Provider
-- **RAG Service**: Embedding und semantische Suche
+- **RAG Service**: Embedding (über APIs) und semantische Suche
 - **Payment Service**: Stripe-Integration und Abrechnung
 
 ## 📖 Dokumentation
@@ -130,9 +132,13 @@ REDIS_URL=redis://redis:6379
 JWT_SECRET=your-secret-key
 ENCRYPTION_KEY=your-encryption-key
 
-# LLM API Keys (optional - Nutzer können eigene Keys verwenden)
+# LLM API Keys (für Chat und Embeddings)
 OPENAI_API_KEY=sk-...
 ANTHROPIC_API_KEY=sk-ant-...
+
+# Embedding-Provider (kostenoptimiert)
+OPENAI_EMBEDDING_MODEL=text-embedding-3-small
+EMBEDDING_PROVIDER=openai  # oder runpod
 
 # Payment
 STRIPE_SECRET_KEY=sk_test_...
@@ -205,12 +211,12 @@ Dieses Projekt folgt dem [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 
 ## 📊 Projekt-Status
 
-- **Aktuelle Version**: 0.12.0 ✅ **Phase 3 abgeschlossen**
-- **Entwicklungsstand**: Bereit für Phase 4 (Erweiterte Features)
+- **Aktuelle Version**: 0.13.0 ✅ **Milestone 4.1 abgeschlossen**
+- **Entwicklungsstand**: Phase 4 - Erweiterte Features (3 von 4 Meilensteinen verbleibend)
 - **Roadmap**: Siehe [ROADMAP.md](ROADMAP.md)
 - **Changelog**: Siehe [CHANGELOG.md](CHANGELOG.md)
 
-### ✅ Abgeschlossen (Phase 0 + 1 + 2 + 3)
+### ✅ Abgeschlossen (Phase 0 + 1 + 2 + 3 + 4.1)
 
 - [x] **Phase 0:** Vollständige Entwicklungsumgebung
 - [x] **Phase 0:** CI/CD-Pipeline mit GitHub Actions
@@ -236,18 +242,23 @@ Dieses Projekt folgt dem [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 - [x] **Phase 3:** Project Management UI
 - [x] **Phase 3:** Authentication UI & User Profile
 - [x] **Phase 3:** Dark/Light Mode & Responsive Design
+- [x] **Phase 4.1:** RAG & Vector Database (API-basiert)
+- [x] **Phase 4.1:** Qdrant Integration & Document Processing
+- [x] **Phase 4.1:** Knowledge Base UI mit Cost Tracking
+- [x] **Phase 4.1:** System Optimization (84% weniger Build-Zeit)
 
-### 🚀 Nächste Phase (Phase 4)
+### 🚀 Nächste Meilensteine (Phase 4)
 
-- [ ] RAG-Unterstützung
-- [ ] Payment Integration
-- [ ] Role-Playing Features
+- [ ] **Milestone 4.2:** Payment & Billing System
+- [ ] **Milestone 4.3:** Role-Playing Features
+- [ ] **Milestone 4.4:** Advanced UI Features
 
 ## 🔐 Sicherheit
 
 - Alle API-Keys werden verschlüsselt gespeichert
 - JWT-basierte Authentifizierung
 - Rate Limiting auf allen Endpoints
+- **Kostenoptimierte LLM-API-Nutzung** für Embeddings
 - Regelmäßige Security Audits
 
 Sicherheitslücken bitte an: security@llm-frontend.example

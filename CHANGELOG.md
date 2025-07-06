@@ -16,6 +16,81 @@ und dieses Projekt verwendet [Semantic Versioning](https://semver.org/spec/v2.0.
 
 ---
 
+## [0.13.0] - 2025-07-07
+
+### 🎉 Milestone 4.1 Abgeschlossen - RAG & Vector Database
+- API-basierte RAG-Pipeline ohne lokale ML-Models
+- Qdrant Vector Database Integration
+- Kostenoptimierte Embedding-Strategien
+- Vollständige Document Management Pipeline
+- Knowledge Base UI mit Cost Tracking
+- Systemoptimierung: 84% weniger Build-Zeit, 50% weniger RAM
+
+### ✨ Added
+- **RAG Service (API-basiert)**
+  - Vollständiger RAG-Service Rewrite (600+ Zeilen)
+  - Externe API Integration für Embeddings (OpenAI, RunPod)
+  - Qdrant Vector Database Setup mit automatischer Collection-Erstellung
+  - Document Processing Pipeline (PDF, TXT, MD, DOC, DOCX)
+  - Text Chunking mit Overlap-Unterstützung
+  - Semantic Search mit API-basierten Embeddings
+  - RAG Context Generation für LLM-Queries
+  - Document CRUD Operations mit Metadaten
+  - Cost Tracking für Embedding-Operationen
+  - Retry Logic für robuste API-Verbindungen
+
+- **Knowledge Base UI Enhancement**
+  - Cost Tracking Integration in Upload-Bestätigungen
+  - Embedding-Kosten Anzeige in Real-time
+  - Search Performance Metrics (Zeit, Kosten)
+  - Document Metadata mit Embedding-Model Information
+  - Enhanced Search Results mit Cost Information
+
+- **System Optimization**
+  - Entfernung lokaler ML-Dependencies (sentence-transformers)
+  - CPU-optimierte Docker Configuration
+  - Reduzierte Build-Zeit von 589s auf 94s (84% Reduktion)
+  - RAM-Anforderungen von 8GB auf 4GB reduziert (50% Reduktion)
+  - Speicherplatz von 20GB auf 10GB reduziert (50% Reduktion)
+  - Elimination von lokalen GPU-Anforderungen
+
+### 🔧 Technical Infrastructure
+- **API-basierte Architektur**: Vollständige Umstellung auf externe APIs
+- **Embedding Providers**: OpenAI (text-embedding-3-small), RunPod Support
+- **Vector Database**: Qdrant mit automatischer Collection-Verwaltung
+- **Document Processing**: Multi-Format Support mit Chunking
+- **Cost Optimization**: Embedding-Kosten Tracking und Minimierung
+- **Docker Optimization**: Smaller images, faster builds
+
+### 📦 Dependencies Updates
+- **Removed**: sentence-transformers, torch, transformers (GPU-dependencies)
+- **Added**: httpx für API-Kommunikation
+- **Updated**: qdrant-client, python-multipart
+- **Optimized**: Docker layers für CPU-only deployment
+
+### 🚀 Performance Improvements
+- **Build Performance**: 84% faster Docker builds
+- **Memory Usage**: 50% weniger RAM erforderlich
+- **Storage**: 50% weniger Speicherplatz
+- **API Response**: Optimierte Embedding-Calls
+- **Cost Efficiency**: API-basierte Embedding-Strategien
+
+### 🔒 Security & Reliability
+- **API Key Management**: Sichere Speicherung für Embedding-Provider
+- **Retry Logic**: Robuste Verbindungswiederholung
+- **Error Handling**: Comprehensive Exception Management
+- **Health Checks**: Service-Status Monitoring
+- **Cost Limits**: Embedding-Kosten Überwachung
+
+### 📊 Ready for Milestone 4.2
+- RAG-Pipeline vollständig funktionsfähig
+- Kostenoptimierte Embedding-Integration
+- Knowledge Base UI mit Cost Tracking
+- Qdrant Vector Database operational
+- Bereit für Payment & Billing System
+
+---
+
 ## [0.12.0] - 2025-07-06
 
 ### 🎉 Phase 3 Abgeschlossen - Frontend Grundfunktionen

@@ -5,6 +5,7 @@ import {
   MessageSquare, 
   Folder, 
   Settings, 
+  Database,
   X,
   Plus,
   Search
@@ -20,6 +21,7 @@ const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: Home },
   { name: 'Chat', href: '/chat', icon: MessageSquare },
   { name: 'Projekte', href: '/projects', icon: Folder },
+  { name: 'Knowledge Base', href: '/knowledge', icon: Database },
   { name: 'Einstellungen', href: '/settings', icon: Settings },
 ]
 

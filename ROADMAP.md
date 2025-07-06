@@ -7,13 +7,14 @@ Diese Roadmap definiert die vollständige Entwicklung des **KI-gestützten Chat-
 **Projektstart:** Juli 2025  
 **Geplante Produktionsreife:** v1.0.0 - Dezember 2025
 
-**🎯 Aktueller Status (6. Juli 2025):**
+**�� Aktueller Status (7. Juli 2025, 0:49 Uhr):**
 - ✅ **Phase 0 abgeschlossen** - Projektinitialisierung (v0.2.0)
 - ✅ **Phase 1 abgeschlossen** - Fundament & Infrastruktur (v0.5.0)
 - ✅ **Phase 2 abgeschlossen** - Backend Core Services (v0.8.0)
 - ✅ **Phase 3 abgeschlossen** - Frontend Grundfunktionen (v0.12.0)
-- 🚀 **Bereit für Phase 4** - Erweiterte Features
-- 📊 **Fortschritt:** 20/20 Meilensteine von Phase 0+1+2+3 erreicht
+- ✅ **Phase 4 Milestone 4.1 abgeschlossen** - RAG & Vector Database (v0.13.0)
+- 🚀 **Aktuelle Phase 4** - Erweiterte Features (3 von 4 Meilensteinen verbleibend)
+- 📊 **Fortschritt:** 21/24 Meilensteine erreicht
 
 ---
 
@@ -182,18 +183,20 @@ Diese Roadmap definiert die vollständige Entwicklung des **KI-gestützten Chat-
 
 ---
 
-### **Phase 4: Erweiterte Features** (v0.13.0 - v0.16.0) 🚀 **NÄCHSTE PHASE**
+### **Phase 4: Erweiterte Features** (v0.13.0 - v0.16.0) 🚀 **AKTUELLE PHASE**
 *Zeitraum: KW 41-45 (Oktober-November 2025)*
 
-#### Meilenstein 4.1: RAG & Vektor-Datenbank
-- [ ] Embedding Service Setup
-- [ ] Qdrant Integration
-- [ ] Document Chunking
-- [ ] Semantic Search API
-- [ ] RAG Pipeline
-- [ ] Knowledge Base UI
+#### Meilenstein 4.1: RAG & Vektor-Datenbank ✅ **ABGESCHLOSSEN**
+- [x] Embedding Service Setup (über externe APIs)
+- [x] LLM-API Integration für Embeddings (OpenAI, RunPod)
+- [x] Qdrant Integration
+- [x] Document Chunking
+- [x] Semantic Search API
+- [x] RAG Pipeline (API-basiert)
+- [x] Knowledge Base UI
+- [x] Kostenoptimierte Embedding-Strategien
 
-#### Meilenstein 4.2: Payment & Billing
+#### Meilenstein 4.2: Payment & Billing 🔄 **NÄCHSTER MEILENSTEIN**
 - [ ] Stripe Integration
 - [ ] Prepaid System
 - [ ] Usage Tracking
@@ -324,6 +327,7 @@ Diese Roadmap definiert die vollständige Entwicklung des **KI-gestützten Chat-
 - **Qdrant** für Vektordatenbank
 - **Redis** für Caching & Sessions
 - **Celery** für Background Tasks
+- **Externe LLM-APIs** für Embeddings (OpenAI, RunPod)
 
 ### Frontend
 - **Vite** als Build Tool
@@ -338,6 +342,7 @@ Diese Roadmap definiert die vollständige Entwicklung des **KI-gestützten Chat-
 - **Nginx** als Reverse Proxy
 - **MinIO** für S3-kompatible Speicherung
 - **Prometheus** + **Grafana** für Monitoring
+- **Keine lokalen GPUs erforderlich** - vollständig API-basiert
 
 ---
 

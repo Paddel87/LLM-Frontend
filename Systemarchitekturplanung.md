@@ -47,7 +47,10 @@ Die Software soll:
 ### 6. **Vektordatenbank & RAG**
 - Zentraler Vektorindex mit Trennung nach `user_id` und `project_id`
 - Speicherung aller Embeddings durch Modul 5 (semantisch aktivierte Objekte)
+- **Embedding-Generierung über externe LLM-APIs** (OpenAI, RunPod, günstige Embedding-Provider)
 - Such- und Retrieval-API für spätere RAG-Module
+- **Keine lokalen GPUs erforderlich** - vollständig API-basiert
+- Kostenoptimierte Embedding-Strategien mit verschiedenen Provider-Optionen
 
 ### 7. **Benutzerverwaltung & Rollen**
 - Standard: Einzelbenutzermodus
@@ -95,7 +98,7 @@ Die Software soll:
 | `auth-service`       | JWT/OAuth-basierte Authentifizierung     |
 | `payment-service`    | Stripe-Integration                       |
 | `llm-proxy`          | Anfragenrouting zu OpenAI, Gemini etc.   |
-| `rag-service`        | Embedding + Vektorabfragen               |
+| `rag-service`        | Embedding (über APIs) + Vektorabfragen   |
 | `postgres-db`        | Relationale Datenbank                    |
 | `vectordb`           | Chroma oder Qdrant                       |
 
@@ -131,3 +134,5 @@ Ziel ist eine produktionsreife, modulare Architektur, auf deren Basis ein Open-S
   - Unix/Mac: `source .venv/bin/activate`  
   - Windows: `.venv\Scripts\activate`
 - Abhängigkeiten: `pip install -r requirements.txt`
+- **Keine lokalen GPUs erforderlich** - alle ML-Operations über externe APIs
+- Empfohlene Systemanforderungen: 4GB RAM, 10GB Speicher
