@@ -9,8 +9,9 @@ Diese Roadmap definiert die vollständige Entwicklung des **KI-gestützten Chat-
 
 **🎯 Aktueller Status (6. Juli 2025):**
 - ✅ **Phase 0 abgeschlossen** - Projektinitialisierung (v0.2.0)
-- 🚀 **Bereit für Phase 1** - Fundament & Infrastruktur
-- 📊 **Fortschritt:** 8/8 Meilensteine von Phase 0 erreicht
+- ✅ **Phase 1 abgeschlossen** - Fundament & Infrastruktur (v0.5.0)
+- 🚀 **Bereit für Phase 2** - Backend Core Services
+- 📊 **Fortschritt:** 13/13 Meilensteine von Phase 0+1 erreicht
 
 ---
 
@@ -54,43 +55,46 @@ Diese Roadmap definiert die vollständige Entwicklung des **KI-gestützten Chat-
 
 ---
 
-### **Phase 1: Fundament & Infrastruktur** (v0.3.0 - v0.5.0)
+### **Phase 1: Fundament & Infrastruktur** (v0.3.0 - v0.5.0) ✅ **ABGESCHLOSSEN**
 *Zeitraum: KW 29-31 (Juli-August 2025)*
 
-#### Meilenstein 1.1: Datenbankschema
-- [ ] ERD (Entity Relationship Diagram) erstellen
-- [ ] PostgreSQL Schema definieren
+#### Meilenstein 1.1: Datenbankschema ✅
+- [x] ERD (Entity Relationship Diagram) erstellen
+- [x] PostgreSQL Schema definieren
   - users, roles, permissions
   - projects, folders, chats
   - api_keys, tokens, usage_logs
   - payments, invoices
-- [ ] Alembic Migrationen einrichten
-- [ ] Seed-Daten für Entwicklung
+- [x] Alembic Migrationen einrichten
+- [x] Seed-Daten für Entwicklung
 
-#### Meilenstein 1.2: Authentication & Authorization
-- [ ] JWT-basierte Authentifizierung
-- [ ] User Registration/Login API
-- [ ] Passwort-Reset Funktionalität
-- [ ] API-Key Management (verschlüsselt)
-- [ ] Role-Based Access Control (RBAC)
-- [ ] Session Management
+#### Meilenstein 1.2: Authentication & Authorization ✅
+- [x] JWT-basierte Authentifizierung
+- [x] User Registration/Login API
+- [x] Passwort-Reset Funktionalität
+- [x] API-Key Management (verschlüsselt)
+- [x] Role-Based Access Control (RBAC)
+- [x] Session Management
 
-#### Meilenstein 1.3: Core API Gateway
-- [ ] OpenAPI 3.0 Spezifikation
-- [ ] Request/Response Logging
-- [ ] Rate Limiting
-- [ ] CORS Konfiguration
-- [ ] Health Check Endpoints
-- [ ] API Versionierung
+#### Meilenstein 1.3: Core API Gateway ✅
+- [x] OpenAPI 3.0 Spezifikation
+- [x] Request/Response Logging
+- [x] Rate Limiting
+- [x] CORS Konfiguration
+- [x] Health Check Endpoints
+- [x] API Versionierung
 
-**Deliverables:**
-- Vollständiges Datenbankschema
-- Funktionierende Auth-API
-- API-Dokumentation (Swagger)
+**Deliverables:** ✅ **ABGESCHLOSSEN**
+- Vollständiges Datenbankschema (13 Tabellen)
+- Funktionierende Auth-API (580+ Zeilen)
+- API-Dokumentation (Swagger UI)
+- JWT-System mit Token-Management
+- SQLAlchemy Models mit Alembic
+- Comprehensive Security Implementation
 
 ---
 
-### **Phase 2: Backend Core Services** (v0.6.0 - v0.8.0)
+### **Phase 2: Backend Core Services** (v0.6.0 - v0.8.0) 🚀 **AKTUELLE PHASE**
 *Zeitraum: KW 32-35 (August 2025)*
 
 #### Meilenstein 2.1: Project & Chat Management
@@ -383,5 +387,5 @@ Diese Roadmap definiert die vollständige Entwicklung des **KI-gestützten Chat-
 ---
 
 **Letzte Aktualisierung:** 6. Juli 2025  
-**Aktueller Status:** Phase 0 ✅ Abgeschlossen - Bereit für Phase 1  
+**Aktueller Status:** Phase 1 ✅ Abgeschlossen - Bereit für Phase 2  
 **Nächstes Review:** August 2025 

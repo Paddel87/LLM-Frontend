@@ -16,6 +16,79 @@ und dieses Projekt verwendet [Semantic Versioning](https://semver.org/spec/v2.0.
 
 ---
 
+## [0.5.0] - 2025-07-06
+
+### 🎉 Phase 1 Abgeschlossen - Fundament & Infrastruktur
+- Vollständiges Datenbankschema mit 13 Tabellen implementiert
+- JWT-basierte Authentifizierung mit User Management
+- Core API Gateway mit OpenAPI 3.0 Spezifikation
+- Umfassende Sicherheits- und Monitoring-Features
+
+### ✨ Added
+- **Database Schema (Milestone 1.1)**
+  - 13-Tabellen PostgreSQL Schema (528 Zeilen)
+  - Vollständige ERD-Dokumentation
+  - Alembic Migrationen Setup
+  - SQLAlchemy Models (434 Zeilen)
+  - Indizes, Trigger, Views und Stored Procedures
+  - User/Role/Permission System
+  - Project/Folder/Chat/Message Structure
+  - API Keys & Token Management
+  - Usage Tracking & Payment System
+
+- **Authentication & Authorization (Milestone 1.2)**
+  - JWT-basierte Authentifizierung (580+ Zeilen)
+  - User Registration mit Email-Verifizierung
+  - Login/Logout mit Token-Management
+  - Password Reset & Change Funktionalität
+  - API-Key Management (verschlüsselt)
+  - Role-Based Access Control (RBAC)
+  - Session Management mit Refresh Tokens
+  - Admin-Endpoints für Token-Cleanup
+
+- **Core API Gateway (Milestone 1.3)**
+  - OpenAPI 3.0 Spezifikation (445 Zeilen)
+  - Swagger UI Documentation unter `/docs`
+  - Express.js Gateway mit Rate Limiting
+  - CORS-Konfiguration für Dev/Production
+  - Comprehensive Health Checks
+  - Security Middleware (Helmet, Compression)
+  - API Versioning (`/api/v1/`)
+  - Service Proxy für alle Microservices
+  - Request/Response Logging mit Request-IDs
+
+### 🔧 Technical Infrastructure
+- **Database**: PostgreSQL Schema mit 13 Tabellen
+- **Security**: JWT Tokens, bcrypt Password Hashing, API Key Encryption
+- **API**: OpenAPI 3.0 mit vollständiger Dokumentation
+- **Monitoring**: Health Checks, Service Status, Uptime Tracking
+- **Error Handling**: Strukturierte Fehlerbehandlung mit HTTP Status Codes
+
+### 📦 Dependencies Added
+- **Backend**: SQLAlchemy, Alembic, python-jose, passlib, bcrypt
+- **API Gateway**: express, swagger-ui-express, helmet, compression
+- **Security**: express-rate-limit, cors, http-proxy-middleware
+- **Logging**: winston, structlog für Request-Tracking
+
+### 🛠️ Database Schema
+- `users` - User accounts with roles
+- `roles` & `permissions` - RBAC system
+- `projects` & `folders` - Project organization
+- `chats` & `messages` - Chat management
+- `api_keys` & `tokens` - Security management
+- `usage_logs` - Cost tracking
+- `payments` & `invoices` - Billing system
+- `user_balance` - Account balance tracking
+
+### 🚀 Ready for Phase 2
+- Vollständiges Backend-Fundament
+- Sichere Authentifizierung
+- API-Gateway mit Dokumentation
+- Datenbankschema für alle Features
+- Monitoring & Health Checks
+
+---
+
 ## [0.2.0] - 2025-07-06
 
 ### 🎉 Phase 0 Abgeschlossen - Projektinitialisierung
