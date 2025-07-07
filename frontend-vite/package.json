@@ -27,7 +27,7 @@
     "tailwind-merge": "^2.0.0",
     "date-fns": "^2.30.0",
     "react-hot-toast": "^2.4.1",
-    "react-dropzone": "^14.2.3",
+    "react-dropzone": "^14.3.8",
     "framer-motion": "^10.16.5",
     "i18next": "^23.7.6",
     "react-i18next": "^13.5.0",
